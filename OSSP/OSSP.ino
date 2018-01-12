@@ -34,6 +34,9 @@ void handleNotFound(){
 }
 
 void setup(void){
+
+  pinMode(D5, OUTPUT); 
+  
   pinMode(led, OUTPUT);
   digitalWrite(led, 0);
   Serial.begin(115200);
@@ -69,5 +72,13 @@ void setup(void){
 }
 
 void loop(void){
+
   server.handleClient();
+    
+  digitalWrite(Relay, HIGH); 
+  delay(1000);
+  digitalWrite(Relay, LOW); 
+  delay(1000);
+
+
 }
