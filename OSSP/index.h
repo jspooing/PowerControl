@@ -1,12 +1,14 @@
 const char MAIN_page[] PROGMEM = R"=====(
 <HTML>
 	<HEAD>
-			<TITLE>MY first web page</TITLE>
+			<TITLE>Arduino Control</TITLE>
 	</HEAD>
 <BODY>
-	<CENTER>
-			<B>HELLO WORLD.... </B>
-	</CENTER>
+	<FORM method='get' action='setting'>
+		<INPUT type='BUTTON' value='ON' onclick='submit()'>
+		<INPUT type='BUTTON' value='OFF' onclick='submit()'>
+	</FORM>
+
 </BODY>
 </HTML>
 )=====";
