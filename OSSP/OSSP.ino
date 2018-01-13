@@ -3,6 +3,8 @@
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
 
+#include "index.h"
+
 const char* ssid = "KT_WLAN_AD9D";
 const char* password = "000000A9D7";
 
@@ -12,7 +14,7 @@ const int led = 13;
 
 void handleRoot() {
   digitalWrite(led, 1);
-  server.send(200, "text/plain", "hello from esp8266!");
+  server.send(200, "text/html", MAIN_page);
   digitalWrite(led, 0);
 }
 
@@ -34,9 +36,6 @@ void handleNotFound(){
 }
 
 void setup(void){
-
-  pinMode(D5, OUTPUT); 
-  
   pinMode(led, OUTPUT);
   digitalWrite(led, 0);
   Serial.begin(115200);
@@ -72,13 +71,5 @@ void setup(void){
 }
 
 void loop(void){
-
   server.handleClient();
-    
-  digitalWrite(Relay, HIGH); 
-  delay(1000);
-  digitalWrite(Relay, LOW); 
-  delay(1000);
-
-
 }
